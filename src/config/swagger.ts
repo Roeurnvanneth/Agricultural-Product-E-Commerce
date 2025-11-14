@@ -36,3 +36,8 @@ export const swaggerDocs = (app: Express) => {
   app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
   console.log("📘 Swagger Docs available at http://localhost:4000/api-docs");
 };
+
+
+tags: [
+  { name: "Farmers", description: "Farmer user management API" }
+]
