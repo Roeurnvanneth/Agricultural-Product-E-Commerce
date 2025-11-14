@@ -4,7 +4,9 @@
   "description": "",
   "main": "dist/server.ts",
   "scripts": {
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "build": "tsc",
+    "start": "node dist/server.ts"
   },
   "keywords": [],
   "author": "",
