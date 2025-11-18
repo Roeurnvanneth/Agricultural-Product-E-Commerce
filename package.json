@@ -4,6 +4,7 @@
   "description": "",
   "main": "dist/server.ts",
   "scripts": {
+    "seed:seedAdmin": "tsx --watch --env-file .env src/seed/seedAdmin",
     "dev": "nodemon",
     "build": "tsc",
     "start": "node dist/server.ts"
