@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { createUser } from "../service/userService";
+
 import {
   getAllFarmers,
   getFarmerById,
@@ -84,5 +85,25 @@ export const removeFarmer = async (req: Request, res: Response) => {
     res.json({ message: "Farmer deleted successfully" });
   } catch (error) {
     res.status(500).json({ message: (error as Error).message });
+  }
+};
+
+// CREATE USER
+export const addUser = async (req: Request, res: Response) => {
+  try {
+    const { name, email, password} = req.body;
+
+    if (!name || !email || !password) {
+      return res.status(400).json({
+        message: "Name, email, password",
+      });
+    }
+    const user = await createUser(req.body);
+    res.status(201).json({ message: "User created successfully", user });
+  } catch (error: any) {
+    if (error.code === 11000)
+      return res.status(400).json({ message: "Email already exists" });
+
+    res.status(500).json({ message: error.message });
   }
 };

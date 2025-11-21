@@ -4,7 +4,8 @@
   "description": "",
   "main": "dist/server.ts",
   "scripts": {
-    "seed:seedAdmin": "tsx --watch --env-file .env src/seed/seedAdmin",
+    "seed:Admin": "ts-node src/seed/adminSeeder.ts",
+    "seed:Category": "ts-node src/seed/categorySeeder.ts",
     "dev": "nodemon",
     "build": "tsc",
     "start": "node dist/server.ts"
@@ -29,6 +30,7 @@
     "@types/bcrypt": "^6.0.0",
     "@types/bcryptjs": "^2.4.6",
     "@types/express": "^5.0.5",
+    "@types/jquery": "^3.5.33",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.10.0",
     "@types/swagger-jsdoc": "^6.0.4",
