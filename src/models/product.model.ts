@@ -10,7 +10,7 @@ const productSchema = new Schema<IProductDocument>(
     price: { type: Number, required: true },
     stock: { type: Number, required: true },
     image: { type: String },
-    ownerId: { type: Schema.Types.ObjectId as unknown as StringConstructor, ref: "User", required: true }, // <-- type assertion
+    ownerId: { type: Schema.Types.ObjectId as unknown as StringConstructor, ref: "User", required: true },
   },
   { timestamps: true }
 );

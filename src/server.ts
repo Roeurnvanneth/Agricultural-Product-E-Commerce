@@ -5,6 +5,13 @@ import farmerRoutes from "./routes/user.routes";
 import userRoleRoutes from "./routes/userrole.routes";
 import { swaggerDocs } from "./config/swagger";
 import productRoutes from "./routes/product.routes";
+import orderRoutes from "./routes/order.routes";
+import paymentRoutes from './routes/payment.routes';
+import { stripeWebhookHandler } from './controllers/stripe.webhook';
+
+
+
+
 
 
 
@@ -21,6 +28,12 @@ const startServer = async () => {
     app.use("/api/farmers", farmerRoutes);
     app.use("/api/userroles", userRoleRoutes);
     app.use("/api/products", productRoutes);
+    app.use("/api/orders", orderRoutes);
+    app.use('/api/payments', paymentRoutes);
+    app.post('/webhook/stripe', stripeWebhookHandler);
+
+
+
 
 
     swaggerDocs(app);

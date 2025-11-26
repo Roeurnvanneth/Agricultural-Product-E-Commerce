@@ -12,6 +12,7 @@ export interface IProduct {
   updatedAt?: Date;
 }
 
+
 // Request body for creating a product
 export interface ICreateProduct {
   name: string;
@@ -19,8 +20,9 @@ export interface ICreateProduct {
   price: number;
   stock: number;
   image?: string;
-  ownerId: string;
+  ownerId?: string;
 }
+
 
 // Request body for updating a product
 export interface IUpdateProduct {

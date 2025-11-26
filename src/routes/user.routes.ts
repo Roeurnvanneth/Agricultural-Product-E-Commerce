@@ -25,6 +25,6 @@ router.get("/", protect, adminOnly, getFarmers);
 router.get("/:id", protect, adminOnly, getFarmer);
 router.put("/:id", protect, adminOnly, editFarmer);
 router.delete("/:id", protect, adminOnly, removeFarmer);
-router.post("/crete-user", addUser); // CREATE
+router.post("/create-user", addUser); // CREATE
 
 export default router;

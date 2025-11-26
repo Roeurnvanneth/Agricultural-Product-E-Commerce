@@ -1,17 +1,23 @@
 import { Request, Response } from "express";
 import * as productService from "../service/productService";
 import { ICreateProduct, IUpdateProduct } from "../types/product.types";
+import { AuthRequest } from "../middlewares/protect";
+
 
 // Create product
-export const createProductController = async (req: Request, res: Response) => {
+export const createProductController = async (req: AuthRequest, res: Response) => {
   try {
     const body: ICreateProduct = req.body;
-    const product = await productService.createProduct(body);
+    const user = req.user;
+    const product = await productService.createProduct(body, user);
     res.status(201).json(product);
+
   } catch (error) {
     res.status(400).json({ message: (error as Error).message });
   }
 };
+
+
 
 // Get all products
 export const getProductsController = async (_req: Request, res: Response) => {
@@ -23,6 +29,7 @@ export const getProductsController = async (_req: Request, res: Response) => {
   }
 };
 
+
 // Get product by ID
 export const getProductController = async (req: Request, res: Response) => {
   try {
@@ -33,6 +40,7 @@ export const getProductController = async (req: Request, res: Response) => {
     res.status(500).json({ message: (error as Error).message });
   }
 };
+
 
 // Update product
 export const updateProductController = async (req: Request, res: Response) => {

@@ -2,7 +2,7 @@ import Product from "../models/product.model";
 import { ICreateProduct, IUpdateProduct, IProductResponse } from "../types/product.types";
 
 // Create product
-export const createProduct = async (data: ICreateProduct): Promise<IProductResponse> => {
+export const createProduct = async (data: ICreateProduct, user: any): Promise<IProductResponse> => {
   const product = new Product(data);
   const saved = await product.save();
   return {

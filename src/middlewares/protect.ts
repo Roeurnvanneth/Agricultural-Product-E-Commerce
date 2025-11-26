@@ -4,6 +4,7 @@ import User from "../models/user.model";
 
 export interface AuthRequest extends Request {
   user?: any;
+  role?: string;
 }
 
 export const protect = async (
@@ -22,6 +23,8 @@ export const protect = async (
     const decoded = jwt.verify(token, process.env.JWT_SECRET!);
 
     req.user = await User.findById((decoded as any).id).select("-password");
+    req.role = (decoded as any).role;
+    
 
     if (!req.user) {
       return res.status(401).json({ message: "User not found" });
@@ -32,3 +35,4 @@ export const protect = async (
     res.status(401).json({ message: "Invalid token" });
   }
 };
+
