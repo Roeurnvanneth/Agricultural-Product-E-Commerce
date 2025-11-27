@@ -28,7 +28,6 @@ const startServer = async () => {
     app.post('/webhook/stripe', stripeWebhookHandler);
 
 
-
     swaggerDocs(app);
 
     const PORT = process.env.PORT || 4000;
