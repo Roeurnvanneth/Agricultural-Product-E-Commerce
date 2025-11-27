@@ -12,11 +12,6 @@ import { stripeWebhookHandler } from './controllers/stripe.webhook';
 
 
 
-
-
-
-
-
 const app = express();
 app.use(express.json());
 
@@ -31,8 +26,6 @@ const startServer = async () => {
     app.use("/api/orders", orderRoutes);
     app.use('/api/payments', paymentRoutes);
     app.post('/webhook/stripe', stripeWebhookHandler);
-
-
 
 
 

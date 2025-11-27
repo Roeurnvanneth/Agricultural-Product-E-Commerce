@@ -5,7 +5,7 @@ import Stripe from 'stripe';
 const stripeSecret = process.env.STRIPE_SECRET_KEY || '';
 const stripe = stripeSecret ? new Stripe(stripeSecret) : null;
 
-// Create a payment record (server-side). Optional: create Stripe PaymentIntent and return client secret.
+// Create a payment 
 export const createPaymentHandler = async (req: Request, res: Response) => {
   try {
     const { orderId, userId, amount, method } = req.body;

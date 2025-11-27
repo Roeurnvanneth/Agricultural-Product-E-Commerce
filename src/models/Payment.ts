@@ -4,7 +4,7 @@ export interface IPayment extends Document {
   orderId: mongoose.Types.ObjectId;
   userId: mongoose.Types.ObjectId;
   amount: number;
-  method: string;           //  "stripe", "card", "cash", "paypal","aba","wings"
+  method: string; //"card", "cash", "paypal","aba","wings"
   status: 'pending' | 'paid' | 'failed' | 'refunded';
   transactionId?: string;
   createdAt: Date;
